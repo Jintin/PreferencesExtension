@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 
 abstract class PreferenceLiveData<T>(
     private val preferences: SharedPreferences,
-    private val target: String
+    private val key: String
 ) : LiveData<T>(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     override fun onActive() {
@@ -20,7 +20,7 @@ abstract class PreferenceLiveData<T>(
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        if (key == target) {
+        if (key == this.key) {
             changeValue(getPreferencesValue())
         }
     }

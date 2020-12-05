@@ -32,8 +32,8 @@ dependencies {
 val value1 = preference.getString(MY_KEY, "")
 
 // New feature
-val value2 : String = preference.get(MY_KEY)
-val value3  = preference.get<String>(MY_KEY)
+val value2 = preference.get<String>(MY_KEY)
+val value3: String = preference.get(MY_KEY)
 ```
 
 2. `LiveData` style of on change listener usage:
