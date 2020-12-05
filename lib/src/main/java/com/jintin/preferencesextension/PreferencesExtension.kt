@@ -2,7 +2,7 @@ package com.jintin.preferencesextension
 
 import android.content.SharedPreferences
 
-inline fun <reified T> SharedPreferences.getValue(key: String): T {
+inline fun <reified T> SharedPreferences.get(key: String): T {
     val value: Any? = when (T::class) {
         Boolean::class -> getBoolean(key, false)
         Int::class -> getInt(key, 0)
@@ -17,5 +17,5 @@ inline fun <reified T> SharedPreferences.getValue(key: String): T {
 
 inline fun <reified T> SharedPreferences.liveData(key: String) =
     object : PreferenceLiveData<T>(this, key) {
-        override fun getPreferencesValue(): T = getValue(key)
+        override fun getPreferencesValue(): T = get(key)
     }

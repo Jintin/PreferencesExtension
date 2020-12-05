@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
         viewModel.preferenceLiveData.observe(this) {
-            println("change value " + it + ":" + this)
             binding.display.text = "Current value is:$it"
         }
     }
