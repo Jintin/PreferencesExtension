@@ -13,18 +13,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        ActivityMainBinding.inflate(layoutInflater).let { binding ->
+            setContentView(binding.root)
 
-        binding.submit.setOnClickListener {
-            viewModel.setPreference(binding.newValue.text.toString())
+            binding.submit.setOnClickListener {
+                viewModel.setPreference(binding.newValue.text.toString())
+            }
+            binding.nextPage.setOnClickListener {
+                startActivity(Intent(this, MainActivity::class.java))
+            }
+            viewModel.preferenceLiveData.observe(this) {
+                binding.display.text = "Current value is:$it"
+            }
         }
-        binding.nextPage.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-        viewModel.preferenceLiveData.observe(this) {
-            binding.display.text = "Current value is:$it"
-        }
+
     }
 }
