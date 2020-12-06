@@ -28,34 +28,13 @@ dependencies {
 
 1. Provide reified type usage:
 ```kotlin
-// Existing way
-val value1 = preference.getString(MY_KEY, "")
-
-// New feature
-val value2 = preference.get<String>(MY_KEY)
-val value3: String = preference.get(MY_KEY)
+val value = preference.get<String>(MY_KEY)
+// or
+val value: String = preference.get(MY_KEY)
 ```
 
-2. `LiveData` style of on change listener usage:
+2. `LiveData` style of on change listener usage to get rid of manually register and unregister:
 ```kotlin
-// Existing way
-override fun onResume() {
-    super.onResume()
-    preference.registerOnSharedPreferenceChangeListener(this)
-}
-
-override fun onPause() {
-    super.onPause()
-    preference.unregisterOnSharedPreferenceChangeListener(this)
-}
-
-override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-    if (key == MY_KEY) {
-        // get update here
-    }
-}
-
-// New feature
 val preferenceLiveData = preference.liveData<String>(MY_KEY)
 
 preferenceLiveData.observe(this) {
