@@ -12,8 +12,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/lib" />
-            <option value="$PROJECT_DIR$/rxJava3" />
+            <option value="$PROJECT_DIR$/preferences" />
+            <option value="$PROJECT_DIR$/rxjava3" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

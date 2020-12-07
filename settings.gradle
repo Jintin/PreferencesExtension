@@ -1,4 +1,4 @@
-include ':rxJava3'
-include ':lib'
+include ':rxjava3'
+include ':preferences'
 include ':app'
 rootProject.name = "PreferencesExtension"

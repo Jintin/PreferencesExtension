@@ -38,8 +38,8 @@ dependencies {
     implementation "androidx.preference:preference-ktx:1.1.1"
     implementation 'io.reactivex.rxjava3:rxjava:3.0.7'
 //    implementation 'com.github.Jintin:PreferencesExtension:master-SNAPSHOT'
-    implementation project(":lib")
-    implementation project(":rxJava3")
+    implementation project(":preferences")
+    implementation project(":rxjava3")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
