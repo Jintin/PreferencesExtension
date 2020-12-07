@@ -20,9 +20,9 @@ allprojects {
 Then add dependency in your module `build.gradle`:
 ```groovy
 dependencies {
-  // basic module and LiveData usage
+  // Base module and LiveData usage
   implementation 'com.github.Jintin.PreferencesExtension:preferences:1.2.0'
-  // rxJava3 usage
+  // RxJava3 usage
   implementation 'com.github.Jintin.PreferencesExtension:rxjava:1.2.0'
 
 }
@@ -37,7 +37,7 @@ val value = preference.get<String>(MY_KEY)
 val value: String = preference.get(MY_KEY)
 ```
 
-2. `LiveData` style of on change listener usage to get rid of manually register and unregister:
+2. `LiveData` style to get preference on change event:
 ```kotlin
 val preferenceLiveData = preference.liveData<String>(MY_KEY)
 
@@ -46,7 +46,7 @@ preferenceLiveData.observe(this) {
 }
 ```
 
-3. `RxJava3` style of on change listener usage to get rid of manually register and unregister:
+3. `RxJava3` style to get preference on change event:
 ```kotlin
 val observable = preference.observable<String>(MY_KEY)
 
