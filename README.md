@@ -24,6 +24,8 @@ dependencies {
   implementation 'com.github.Jintin.PreferencesExtension:preferences:1.2.0'
   // RxJava3 usage
   implementation 'com.github.Jintin.PreferencesExtension:rxjava:1.2.0'
+  // Flow usage
+  implementation 'com.github.Jintin.PreferencesExtension:flow:1.2.0'
 
 }
 ```
