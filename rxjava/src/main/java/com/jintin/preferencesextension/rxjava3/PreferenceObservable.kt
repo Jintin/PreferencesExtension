@@ -37,6 +37,7 @@ abstract class PreferenceObservable<T>(
         private var isDispose = false
 
         init {
+            updateValue(getPreferencesValue())
             preferences.registerOnSharedPreferenceChangeListener(this)
         }
 
