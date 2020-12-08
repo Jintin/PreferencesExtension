@@ -24,7 +24,7 @@ abstract class PreferenceLiveData<T>(
     abstract fun getPreferencesValue(): T
 
     inner class PreferenceListener : SharedPreferences.OnSharedPreferenceChangeListener {
-        private var previousStop = false
+        private var needCheckWhenRegister = false
 
         init {
             if (notifyInitValue) {
@@ -34,14 +34,15 @@ abstract class PreferenceLiveData<T>(
 
         fun register() {
             preferences.registerOnSharedPreferenceChangeListener(listener)
-            if (previousStop) {
+            if (needCheckWhenRegister) {
+                needCheckWhenRegister = false
                 updateValue(getPreferencesValue())
             }
         }
 
         fun unregister() {
             preferences.unregisterOnSharedPreferenceChangeListener(listener)
-            previousStop = true
+            needCheckWhenRegister = true
         }
 
         override fun onSharedPreferenceChanged(
