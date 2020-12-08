@@ -16,7 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/new_value"
@@ -24,10 +25,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:hint="Type new value here"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@id/submit"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/display" />
+        app:layout_constraintTop_toBottomOf="@id/display"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/submit"
@@ -38,7 +41,8 @@
         app:layout_constraintBottom_toTopOf="@id/next_page"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/new_value" />
+        app:layout_constraintTop_toBottomOf="@id/new_value"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/next_page"
@@ -49,5 +53,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/submit" />
+        app:layout_constraintTop_toBottomOf="@id/submit"
+        tools:ignore="HardcodedText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
