@@ -1,3 +1,4 @@
+include ':flow'
 include ':rxjava'
 include ':preferences'
 include ':app'
