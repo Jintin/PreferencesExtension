@@ -31,7 +31,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
 
     private suspend fun triggerFlow() {
-        @Suppress("EXPERIMENTAL_API_USAGE")
         preference.flow<String>(MY_KEY).collect {
             println("get update from flow : $it")
         }

@@ -20,6 +20,6 @@ inline fun <reified T> SharedPreferences.liveData(
     key: String,
     notifyInitValue: Boolean = true
 ): LiveData<T> =
-    object : PreferenceLiveData<T>(this, key, get(key), notifyInitValue) {
+    object : PreferenceLiveData<T>(this, key, notifyInitValue) {
         override fun getPreferencesValue(): T = get(key)
     }
