@@ -21,9 +21,11 @@ Then add dependency in your module `build.gradle`:
 ```groovy
 dependencies {
   // Base module and LiveData usage
-  implementation 'com.github.Jintin.PreferencesExtension:preferences:1.2.0'
+  implementation 'com.github.Jintin.PreferencesExtension:preferences:1.3.0'
   // RxJava3 usage
-  implementation 'com.github.Jintin.PreferencesExtension:rxjava:1.2.0'
+  implementation 'com.github.Jintin.PreferencesExtension:rxjava:1.3.0'
+  // Flow usage
+  implementation 'com.github.Jintin.PreferencesExtension:flow:1.3.0'
 
 }
 ```
@@ -37,7 +39,7 @@ val value = preference.get<String>(MY_KEY)
 val value: String = preference.get(MY_KEY)
 ```
 
-2. `LiveData` style to get preference on change event:
+2. `LiveData` style to get preference modify event:
 ```kotlin
 val preferenceLiveData = preference.liveData<String>(MY_KEY)
 
@@ -46,12 +48,21 @@ preferenceLiveData.observe(this) {
 }
 ```
 
-3. `RxJava3` style to get preference on change event:
+3. `RxJava3` style to get preference modify event:
 ```kotlin
 val observable = preference.observable<String>(MY_KEY)
 
 observable.subscribe {
     // get update here
+}
+```
+
+4. `Flow` style to get preference modify event:
+```kotlin
+val flow = preference.flow<String>(MY_KEY)
+
+flow.collect {
+    println("get update from flow : $it")
 }
 ```
 
