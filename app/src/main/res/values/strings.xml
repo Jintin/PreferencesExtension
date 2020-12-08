@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PreferencesExtension</string>
+    <string name="display_text"> "Current value is %s"</string>
 </resources>

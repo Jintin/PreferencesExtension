@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             }
             viewModel.preferenceLiveData.observe(this) {
                 println("get update from liveData : $it")
-                binding.display.text = "Current value is:$it"
+                binding.display.text = getString(R.string.display_text, it)
             }
         }
 
