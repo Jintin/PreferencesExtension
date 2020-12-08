@@ -41,9 +41,9 @@ val value: String = preference.get(MY_KEY)
 
 2. `LiveData` style to get preference modify event:
 ```kotlin
-val preferenceLiveData = preference.liveData<String>(MY_KEY)
+val liveData = preference.liveData<String>(MY_KEY)
 
-preferenceLiveData.observe(this) {
+liveData.observe(this) {
     // get update here
 }
 ```
@@ -62,7 +62,7 @@ observable.subscribe {
 val flow = preference.flow<String>(MY_KEY)
 
 flow.collect {
-    println("get update from flow : $it")
+    // get update here
 }
 ```
 
