@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, MainActivity::class.java))
             }
             viewModel.preferenceLiveData.observe(this) {
+                println("get update from liveData : $it")
                 binding.display.text = "Current value is:$it"
             }
         }

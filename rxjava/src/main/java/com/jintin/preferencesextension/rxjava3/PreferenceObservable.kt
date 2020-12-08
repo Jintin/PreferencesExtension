@@ -10,7 +10,7 @@ inline fun <reified T> SharedPreferences.observable(
     key: String,
     notifyInitValue: Boolean = true
 ): Observable<T> {
-    return object : PreferenceObservable<T>(this, key, get(key), notifyInitValue) {
+    return object : PreferenceObservable<T>(this, key, notifyInitValue) {
         override fun getPreferencesValue(): T = get(key)
     }
 }
@@ -18,7 +18,6 @@ inline fun <reified T> SharedPreferences.observable(
 abstract class PreferenceObservable<T>(
     private val preferences: SharedPreferences,
     private val key: String,
-    private val defValue: T,
     private val notifyInitValue: Boolean
 ) : Observable<T>() {
 
@@ -37,7 +36,9 @@ abstract class PreferenceObservable<T>(
         private var isDispose = false
 
         init {
-            updateValue(getPreferencesValue())
+            if (notifyInitValue) {
+                updateValue(getPreferencesValue())
+            }
             preferences.registerOnSharedPreferenceChangeListener(this)
         }
 
@@ -59,9 +60,6 @@ abstract class PreferenceObservable<T>(
         override fun isDisposed() = isDispose
 
         private fun updateValue(newValue: T) {
-            if (!notifyInitValue && value == null && newValue == defValue) {
-                return
-            }
             if (value != newValue) {
                 value = newValue
                 observer.onNext(value)

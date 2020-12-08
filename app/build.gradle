@@ -37,12 +37,12 @@ android {
 dependencies {
     implementation "androidx.preference:preference-ktx:1.1.1"
     implementation 'io.reactivex.rxjava3:rxjava:3.0.7'
-    implementation 'com.github.Jintin.PreferencesExtension:preferences:master-SNAPSHOT'
-    implementation 'com.github.Jintin.PreferencesExtension:rxjava:master-SNAPSHOT'
-    implementation 'com.github.Jintin.PreferencesExtension:flow:master-SNAPSHOT'
-//    implementation project(":preferences")
-//    implementation project(':rxjava')
-//    implementation project(':flow')
+//    implementation 'com.github.Jintin.PreferencesExtension:preferences:master-SNAPSHOT'
+//    implementation 'com.github.Jintin.PreferencesExtension:rxjava:master-SNAPSHOT'
+//    implementation 'com.github.Jintin.PreferencesExtension:flow:master-SNAPSHOT'
+    implementation project(":preferences")
+    implementation project(':rxjava')
+    implementation project(':flow')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'

@@ -16,7 +16,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val preference = PreferenceManager.getDefaultSharedPreferences(application)
     private val disposable: Disposable
 
-    val preferenceLiveData = preference.liveData<String>(MY_KEY)
+    val preferenceLiveData = preference.liveData<String>(MY_KEY, false)
 
     init {
         disposable = triggerObservable()
@@ -26,13 +26,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun triggerObservable(): Disposable =
-        preference.observable<String>(MY_KEY).subscribe {
+        preference.observable<String>(MY_KEY, false).subscribe {
             println("get update from observable : $it")
         }
 
     private suspend fun triggerFlow() {
-        @Suppress("EXPERIMENTAL_API_USAGE")
-        preference.flow<String>(MY_KEY).collect {
+        preference.flow<String>(MY_KEY, false).collect {
             println("get update from flow : $it")
         }
     }
