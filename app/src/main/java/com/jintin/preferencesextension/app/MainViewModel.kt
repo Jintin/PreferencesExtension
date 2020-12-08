@@ -9,11 +9,9 @@ import com.jintin.preferencesextension.flow.flow
 import com.jintin.preferencesextension.liveData
 import com.jintin.preferencesextension.rxjava3.observable
 import io.reactivex.rxjava3.disposables.Disposable
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-@ExperimentalCoroutinesApi
 class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val preference = PreferenceManager.getDefaultSharedPreferences(application)
     private val disposable: Disposable
@@ -33,6 +31,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
 
     private suspend fun triggerFlow() {
+        @Suppress("EXPERIMENTAL_API_USAGE")
         preference.flow<String>(MY_KEY).collect {
             println("get update from flow : $it")
         }
